@@ -10,13 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_04_013031) do
+ActiveRecord::Schema.define(version: 2022_08_04_013320) do
 
   create_table "engine_departments", force: :cascade do |t|
     t.string "department_type"
     t.integer "engine_id"
     t.integer "engine_quantity"
     t.string "contact"
+  end
+
+  create_table "engines", force: :cascade do |t|
+    t.string "manufactured_engine_id"
+    t.string "associated_vehicle_vin"
+    t.string "engine_type"
+    t.boolean "camshaft_built"
+    t.boolean "piston_built"
+    t.boolean "flywheel_built"
+    t.boolean "connecting_rod_built"
+    t.boolean "crankshaft_built"
+    t.boolean "sump_built"
+    t.boolean "camshaft_drvie_belt_built"
+    t.boolean "completed"
+    t.text "remark"
   end
 
 end
