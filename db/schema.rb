@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2022_08_04_013320) do
   end
 
   create_table "engines", force: :cascade do |t|
-    t.string "department_id"
+    t.integer "department_id"
     t.string "manufactured_engine_id"
     t.string "associated_vehicle_vin"
-    t.string "engine_type"
+    t.string "engine_layout"
     t.boolean "camshaft_built"
     t.boolean "piston_built"
     t.boolean "flywheel_built"

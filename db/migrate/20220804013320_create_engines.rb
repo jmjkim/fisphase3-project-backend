@@ -1,10 +1,10 @@
 class CreateEngines < ActiveRecord::Migration[6.1]
   def change
     create_table :engines do |t|
-      t.string :department_id
+      t.integer :department_id
       t.string :manufactured_engine_id
       t.string :associated_vehicle_vin
-      t.string :engine_type
+      t.string :engine_layout
       
       # Engine Components
       t.boolean :camshaft_built
