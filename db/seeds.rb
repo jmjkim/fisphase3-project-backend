@@ -2,14 +2,6 @@ puts "🌱 Seeding spices..."
 
 # Seed your database here
 EngineDepartment.create(
-    name: "Western Diesel Engineering",
-    department_type: "diesel",
-    engine_quantity: 0,
-    contact: "Jim Smith 925-123-4567 jsdiesel@abc.com"
-)
-
-
-EngineDepartment.create(
     name: "Western Gasoline Engineering",
     department_type: "gasoline",
     engine_quantity: 0,
@@ -17,25 +9,28 @@ EngineDepartment.create(
 )
 
 
-# Create seeds for engine
-engine_type_samples = ["Inline", "Flat", "V"]
-boolean_samples = [true, false]
+engine_type_sample = ["Inline", "Flat", "V"]
+engine_cylinder_sample = [4, 6, 8, 10]
+boolean_sample = [true, false]
 
-12.times do
+24.times do
     Engine.create(
-        department_id: rand(1..2),
-        manufactured_engine_id: Faker::Alphanumeric.alphanumeric(number:7),
+        department_id: 1,
+        manufactured_engine_id: Faker::Alphanumeric.alphanumeric(number:8),
         associated_vehicle_vin: Faker::Vehicle.vin,
-        engine_layout: engine_type_samples.sample(1),
-        camshaft_built: boolean_samples.sample(1),
-        piston_built: boolean_samples.sample(1),
-        flywheel_built: boolean_samples.sample(1),
-        connecting_rod_built: boolean_samples.sample(1),
-        crankshaft_built: boolean_samples.sample(1),
-        sump_built: boolean_samples.sample(1),
-        camshaft_drvie_belt_built: boolean_samples.sample(1),
+        engine_layout: "#{engine_type_sample.sample}#{engine_cylinder_sample.sample}",
+
+        # Engine Components
+        camshaft_built: boolean_sample.sample,
+        piston_built: boolean_sample.sample,
+        flywheel_built: boolean_sample.sample,
+        connecting_rod_built: boolean_sample.sample,
+        crankshaft_built: boolean_sample.sample,
+        sump_built: boolean_sample.sample,
+        camshaft_drvie_belt_built: boolean_sample.sample,
+        
         completed: false,
-        remark: "n/a"
+        remark: ""
     )
 end
 
