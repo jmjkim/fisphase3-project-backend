@@ -27,7 +27,7 @@ boolean_sample = [true, false]
         connecting_rod_built: boolean_sample.sample,
         crankshaft_built: boolean_sample.sample,
         sump_built: boolean_sample.sample,
-        camshaft_drvie_belt_built: boolean_sample.sample,
+        camshaft_drive_belt_built: boolean_sample.sample,
         
         completed: false,
         remark: ""

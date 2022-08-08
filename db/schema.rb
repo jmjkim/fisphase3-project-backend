@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_08_04_013320) do
     t.boolean "connecting_rod_built"
     t.boolean "crankshaft_built"
     t.boolean "sump_built"
-    t.boolean "camshaft_drvie_belt_built"
+    t.boolean "camshaft_drive_belt_built"
     t.boolean "completed"
     t.text "remark"
   end
