@@ -8,31 +8,31 @@ class ApplicationController < Sinatra::Base
   end
 
 
-  get "/engine_department/search_engine_by_manufactured_id/:manufactured_engine_id" do
+  get "/engine_department/:manufactured_engine_id" do
     engine = Engine.all.find_by(manufactured_engine_id: params[:manufactured_engine_id])
     engine.to_json
   end
 
 
-  # post "/engines/:id" do
-  #   engine = Engine.create(
-  #     department_id: params[:department_id],
-  #     manufactured_engine_id: params[:manufactured_engine_id],
-  #     associated_vehicle_vin: params[:associated_vehicle_vin],
-  #     engine_layout: params[:engine_type],
-  #     camshaft_built: params[:camshaft_built],
-  #     piston_built: params[:piston_built],
-  #     flywheel_built: params[:flywheel_built],
-  #     connecting_rod_built: params[:connecting_rod_built],
-  #     crankshaft_built: params[:crankshaft_built],
-  #     sump_built: params[:sump_built],
-  #     camshaft_drvie_belt_built: params[:camshaft_drvie_belt_built],
-  #     completed: params[:completed],
-  #     remark: params[:remark]
-  #   )
+  post "/engine_department" do
+    engine = Engine.create(
+      department_id: params[:department_id],
+      manufactured_engine_id: params[:manufactured_engine_id],
+      associated_vehicle_vin: params[:associated_vehicle_vin],
+      engine_layout: params[:engine_layout],
+      camshaft_built: params[:camshaft_built],
+      piston_built: params[:piston_built],
+      flywheel_built: params[:flywheel_built],
+      connecting_rod_built: params[:connecting_rod_built],
+      crankshaft_built: params[:crankshaft_built],
+      sump_built: params[:sump_built],
+      camshaft_drvie_belt_built: params[:camshaft_drvie_belt_built],
+      completed: params[:completed],
+      remark: params[:remark]
+    )
 
-  #   engine.to_json
-  # end
+    engine.to_json
+  end
 
 
   # patch "/engines/:id" do
@@ -54,8 +54,8 @@ class ApplicationController < Sinatra::Base
   #   engine.to_json
   # end
 
-  # delete "/engines/:id" do
-  #   engine = Engine.find(params[:id])
-  #   engine.destroy
-  # end
+  delete "/engine_department/:id" do
+    engine = Engine.find(params[:id])
+    engine.destroy
+  end
 end
