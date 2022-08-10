@@ -2,20 +2,16 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
 
   # Add your routes here
-  # get "/engine_department/:id" do
-  #   engines = Engine.all.find(params[:id])
-  #   engines.to_json
-  # end
-
   get "/engine_department" do
     engines = Engine.all
     engines.to_json
   end
 
-  get "/engine_department/:manufactured_engine_id" do
+  get "/engine_department/edit/:manufactured_engine_id" do
     engine = Engine.all.find_by(manufactured_engine_id: params[:manufactured_engine_id])
     engine.to_json
   end
+
 
   post "/engine_department" do
     engine = Engine.create(
