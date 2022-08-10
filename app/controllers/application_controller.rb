@@ -7,8 +7,10 @@ class ApplicationController < Sinatra::Base
     engines.to_json
   end
 
-  get "/engine_department/edit/:manufactured_engine_id" do
-    engine = Engine.all.find_by(manufactured_engine_id: params[:manufactured_engine_id])
+  # get "/engine_department/edit/:manufactured_engine_id" do
+  get "/engine_department/:id" do
+    # engine = Engine.all.find_by(manufactured_engine_id: params[:manufactured_engine_id])
+    engine = Engine.all.find_by(id: params[:id])
     engine.to_json
   end
 
@@ -33,8 +35,10 @@ class ApplicationController < Sinatra::Base
     engine.to_json
   end
 
-  patch "/engine_department/:manufactured_engine_id" do
-    engine = Engine.all.find_by(manufactured_engine_id: params[:manufactured_engine_id])
+  # patch "/engine_department/:manufactured_engine_id" do
+  patch "/engine_department/update/:id" do
+    # engine = Engine.all.find_by(manufactured_engine_id: params[:manufactured_engine_id])
+    engine = Engine.all.find_by(id: params[:id])
     engine.update(
       manufactured_engine_id: params[:manufactured_engine_id],
       associated_vehicle_vin: params[:associated_vehicle_vin],
@@ -54,13 +58,13 @@ class ApplicationController < Sinatra::Base
   end
 
 
-    delete "/engine_department/:id" do
-      engine = Engine.all.find(params[:id])
-      engine.destroy
-    end
+  delete "/engine_department/:id" do
+    engine = Engine.all.find(params[:id])
+    engine.destroy
+  end
 
-  # delete "/engine_department/:manufactured_engine_id" do
-  #   engine = Engine.all.find(params[:manufactured_engine_id])
-  #   engine.destroy
-  # end
+  delete "/engine_department/:manufactured_engine_id" do
+    engine = Engine.all.find(params[:manufactured_engine_id])
+    engine.destroy
+  end
 end
