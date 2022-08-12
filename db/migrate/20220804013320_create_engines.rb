@@ -15,7 +15,6 @@ class CreateEngines < ActiveRecord::Migration[6.1]
       t.boolean :sump_built
       t.boolean :camshaft_drive_belt_built
 
-      t.boolean :completed
       t.text :remark
     end
   end

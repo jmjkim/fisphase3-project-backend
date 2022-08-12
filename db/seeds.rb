@@ -13,7 +13,7 @@ engine_type_sample = ["Inline", "Flat", "V"]
 engine_cylinder_sample = [4, 6, 8, 10]
 boolean_sample = [true, false]
 
-24.times do
+45.times do
     Engine.create(
         department_id: 1,
         manufactured_engine_id: Faker::Alphanumeric.alphanumeric(number:8),
@@ -29,7 +29,6 @@ boolean_sample = [true, false]
         sump_built: boolean_sample.sample,
         camshaft_drive_belt_built: boolean_sample.sample,
         
-        completed: false,
         remark: ""
     )
 end
