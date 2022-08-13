@@ -2,7 +2,8 @@ class CreateEngineDepartments < ActiveRecord::Migration[6.1]
   def change
     create_table :engine_departments do |t|
       t.string :name
-      t.string :department_type
+      t.integer :department_id
+      t.string :department_of_engine_size
       t.integer :engine_quantity
       t.string :contact
     end
