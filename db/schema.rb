@@ -14,13 +14,15 @@ ActiveRecord::Schema.define(version: 2022_08_04_013320) do
 
   create_table "engine_departments", force: :cascade do |t|
     t.string "name"
-    t.string "department_type"
+    t.integer "department_id"
+    t.string "department_of_engine_size"
     t.integer "engine_quantity"
     t.string "contact"
   end
 
   create_table "engines", force: :cascade do |t|
     t.integer "department_id"
+    t.string "engine_size"
     t.string "manufactured_engine_id"
     t.string "associated_vehicle_vin"
     t.string "engine_layout"
@@ -31,7 +33,6 @@ ActiveRecord::Schema.define(version: 2022_08_04_013320) do
     t.boolean "crankshaft_built"
     t.boolean "sump_built"
     t.boolean "camshaft_drive_belt_built"
-    t.boolean "completed"
     t.text "remark"
   end
 
